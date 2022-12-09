@@ -13,20 +13,20 @@ def Choices():
     (3) to Update
     (4) to Delete
     (5) to Exit from Application''')
-
+#CREATE
 def create():
     details={}
     with open (file_name, 'r') as f:
         temp=json.load(f)
-    details["name"] = input("Name: ")
-    details["age"] = input("Age: ")
-    details["dob"] = input("DOB: ")
-    details["marks"] = input("Marks: ")
-    details["grade"] = input("Grade: ")
+    details["name"] = input("Name: ") #asks for name
+    details["age"] = input("Age: ") #asks for age
+    details["dob"] = input("DOB: ") #asks for dob
+    details["marks"] = input("Marks: ") #asks for marks
+    details["grade"] = input("Grade: ") #asks for grade
     temp.append(details)
     with open(file_name, 'w') as f:
         json.dump(temp, f, indent = 4)
-
+#READ/RETRIEVE/PRINTS
 def read():
     with open (file_name, 'r') as f:
         temp=json.load(f)
@@ -45,7 +45,7 @@ def read():
             print(f"Grade: {grade}")
             print('\n')
             i=i+1
-
+#UPDATE/EDIT
 def update():
     details = []
     with open (file_name, 'r') as f:
@@ -61,16 +61,16 @@ def update():
             dob = entry["dob"]
             marks = entry["marks"]
             grade = entry["grade"]
-            print(f"Present Name: {name}")
-            name = input("What is the new name? ")
-            print(f"Present Age: {age}")
-            age = input("What is the new age? ")
-            print(f"Present DOB: {dob}")
-            dob = input("What is the new dob? ")
-            print(f"Present Marks: {marks}")
-            marks = input("What is the new marks? ")
-            print(f"Present Grade: {grade}")
-            grade = input("What is the new grade? ")
+            print(f"Present Name: {name}") #reads old name
+            name = input("What is the new name? ")#asks for new name
+            print(f"Present Age: {age}") #reads old age
+            age = input("What is the new age? ")#asks for new age
+            print(f"Present DOB: {dob}") #reads old dob
+            dob = input("What is the new dob? ")#asks for new dob
+            print(f"Present Marks: {marks}") #reads old marks
+            marks = input("What is the new marks? ")#asks for new marks
+            print(f"Present Grade: {grade}") #reads old grade
+            grade = input("What is the new grade? ")#asks for new grade
             details.append({"name": name, "age": age, "dob": dob,"marks": marks, "grade": grade})
             i=i+1
         else:
@@ -79,7 +79,7 @@ def update():
     with open(file_name, 'w') as f:
         json.dump(details, f, indent = 4)
         print('\n')
-
+#DELETE
 def delete():
     read()
     details = []
@@ -100,7 +100,7 @@ def delete():
         json.dump(details, f, indent = 4)
     print('\n')
 
-while True:
+while True: #allows the user to select from the 5 options provided
     Choices()
     choice = input("\nEnter your choice: \n")
     if choice == "1":
